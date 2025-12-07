@@ -60,7 +60,7 @@
     display: flex;
     align-items: center;
     background-color: #f3f3f3c0;
-    padding: 50px 36px;
+    padding: 49px 36px;
 }
 
 .link-to-book {
@@ -71,7 +71,7 @@
 }
 
 a.link-to-book:hover {
-    background-color: #ffffff;
+    background-color: #805a5a;
     color: #6283ac;
     text-decoration: none;
 }
@@ -87,7 +87,7 @@ a.link-to-book:hover {
 }
 
 .carousel-inner {
-    height: 700px;
+    height: 900px;
 }
 
 .row-flex {
