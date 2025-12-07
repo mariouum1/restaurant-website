@@ -1,0 +1,53 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'dev', url: 'https://github.com/mariouum1/restaurant-website.git'
+            }
+        }
+
+        stage('Step 1 : Vérification du dépôt') {
+            steps {
+                bat """
+                echo === Étape 1 : Vérification du dépôt ===
+                git status
+                """
+            }
+        }
+
+        stage('Step 2 : Afficher le contenu du projet') {
+            steps {
+                bat """
+                echo === Étape 2 : Afficher le contenu ===
+                dir
+                """
+            }
+        }
+
+        stage('Step 3 : Simuler un déploiement local') {
+            steps {
+                bat """
+                echo === Étape 3 : Déploiement local simulé ===
+                echo Les fichiers HTML/CSS sont prêts !
+                """
+            }
+        }
+
+        stage('Fin') {
+            steps {
+                echo "SUCCESS"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Build OK"
+        }
+        failure {
+            echo "Build Failed"
+        }
+    }
+}
