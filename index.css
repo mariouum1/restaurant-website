@@ -16,19 +16,19 @@
 .nav-flex-row li {
     text-decoration: none;
     list-style-type: none;
-    padding: 20px 20px;
+    padding: 27px 20px;
 }
 
 .nav-flex-row li a {
     font-family: 'Big Shoulders Text', cursive;
-    color: #ffffff;
+    color: #956c6c;
     font-size: 1.5em;
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 299;
 }
 
 .section-intro {
-    height: 820px;
+    height: 810px;
     background-image: url(img/petr-sevcovic-qE1jxYXiwOA-unsplash.jpg);
     background-size: cover;
     display: flex;
@@ -39,9 +39,9 @@
 
 .section-intro h1 {
     text-align: center;
-    color: #ffffff;
+    color: #e2d8d8;
     font-size: 4em;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .section-intro header {
@@ -60,26 +60,26 @@
     display: flex;
     align-items: center;
     background-color: #f3f3f3c0;
-    padding: 50px 25px;
+    padding: 49px 36px;
 }
 
 .link-to-book {
-    color: #ffffff;
+    color: #c18e8e;
     display: block;
-    border: 2px solid #ffffff;
-    padding: 5px 10px;
+    border: 3px solid #ffffff;
+    padding: 6px 10px;
 }
 
 a.link-to-book:hover {
-    background-color: #ffffff;
-    color: #95999e;
+    background-color: #805a5a;
+    color: #6283ac;
     text-decoration: none;
 }
 
 .about-section p,
 .about-section h3 {
     text-align: center;
-    width: 60%;
+    width: 54%;
     margin: auto;
     font-family: 'Big Shoulders Text', cursive;
     font-size: 1.8em;
@@ -87,7 +87,7 @@ a.link-to-book:hover {
 }
 
 .carousel-inner {
-    height: 700px;
+    height: 850px;
 }
 
 .row-flex {
