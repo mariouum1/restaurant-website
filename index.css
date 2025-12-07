@@ -67,7 +67,7 @@
     color: #c18e8e;
     display: block;
     border: 3px solid #ffffff;
-    padding: 5px 10px;
+    padding: 6px 10px;
 }
 
 a.link-to-book:hover {
@@ -79,7 +79,7 @@ a.link-to-book:hover {
 .about-section p,
 .about-section h3 {
     text-align: center;
-    width: 55%;
+    width: 54%;
     margin: auto;
     font-family: 'Big Shoulders Text', cursive;
     font-size: 1.8em;
@@ -87,7 +87,7 @@ a.link-to-book:hover {
 }
 
 .carousel-inner {
-    height: 900px;
+    height: 850px;
 }
 
 .row-flex {
