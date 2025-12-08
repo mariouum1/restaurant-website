@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGE_NAME = "restaurant-website"
+        CONTAINER_NAME = "restaurant-website"
+        PORT = "8081"
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'dev', url: 'https://github.com/mariouum1/restaurant-website.git'
+            }
+        }
+
+        stage('Setup') {
+            steps {
+                echo "Nettoyer l'ancien conteneur si existe"
+                bat """
+                docker rm -f %CONTAINER_NAME% 2>nul || exit /b 0
+                """
+    }
+}
+
+
+        stage('Build') {
+            steps {
+                bat """
+                docker build -t %IMAGE_NAME%:latest .
+                """
+            }
+        }
+
+        stage('Run (Docker)') {
+            steps {
+                bat """
+                docker run -d --name %CONTAINER_NAME% -p %PORT%:80 %IMAGE_NAME%:latest
+                """
+            }
+        }
+
+        stage('Smoke Test') {
+            steps {
+                echo "Vérifie que le site répond HTTP 200"
+                bat """
+                powershell -Command ^
+                  "$r = Invoke-WebRequest -UseBasicParsing http://localhost:%PORT%/ -TimeoutSec 10; ^
+                   if ($r.StatusCode -ne 200) { exit 1 }"
+                """
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                bat """
+                docker logs %CONTAINER_NAME% > docker.log
+                """
+                archiveArtifacts artifacts: 'docker.log', allowEmptyArchive: false
+            }
+        }
+    }
+}
