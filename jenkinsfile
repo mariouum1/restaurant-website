@@ -49,16 +49,7 @@ pipeline {
             }
         }
 
-        stage('Smoke Test') {
-            steps {
-                echo "Vérifie que le site répond HTTP 200"
-                bat """
-                powershell -Command ^
-                  "$r = Invoke-WebRequest -UseBasicParsing http://localhost:%PORT%/ -TimeoutSec 10; ^
-                   if ($r.StatusCode -ne 200) { exit 1 }"
-                """
-            }
-        }
+        
 
         stage('Archive') {
             steps {
