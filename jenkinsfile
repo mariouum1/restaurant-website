@@ -17,7 +17,7 @@ pipeline {
 
         stage('Setup') {
             steps {
-                // Nettoyer l'ancien conteneur si existe (pour éviter conflit de nom/port)
+                echo " Nettoyer l'ancien conteneur si existe (pour éviter conflit de nom/port)"
                 bat """
                 docker rm -f %CONTAINER_NAME% 2>nul
                 """
@@ -42,7 +42,7 @@ pipeline {
 
         stage('Smoke Test') {
             steps {
-                // Vérifie que le site répond HTTP 200
+                echo "Vérifie que le site répond HTTP 200"
                 bat """
                 powershell -Command ^
                   "$r = Invoke-WebRequest -UseBasicParsing http://localhost:%PORT%/ -TimeoutSec 10; ^
