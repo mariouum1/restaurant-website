@@ -17,12 +17,13 @@ pipeline {
 
         stage('Setup') {
             steps {
-                echo " Nettoyer l'ancien conteneur si existe (pour éviter conflit de nom/port)"
+                echo "Nettoyer l'ancien conteneur si existe"
                 bat """
-                docker rm -f %CONTAINER_NAME% 2>nul
+                docker rm -f %CONTAINER_NAME% 2>nul || exit /b 0
                 """
-            }
-        }
+    }
+}
+
 
         stage('Build') {
             steps {
